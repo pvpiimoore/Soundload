@@ -22,6 +22,7 @@ Each release usually includes:
 - Playlist management with linked local folders.
 - Playlist sync, per-track state, DRM/error/downloaded indicators, and local file reconciliation.
 - Built-in search page for YouTube, SoundCloud, Spotify, and Apple Music metadata where available.
+- Integrated player in Buscador: full playback for YouTube/SoundCloud and official previews for Spotify/Apple Music when available.
 - Spotify search through optional Spotify Developer Client Credentials, without user OAuth.
 - YouTube fallback for DRM-protected or failed tracks when a legal equivalent exists.
 - Metadata and cover handling for downloaded files.
@@ -42,3 +43,4 @@ Soundload checks GitHub Releases for updates. Installed builds use the Windows i
 ## Responsible Use
 
 Use Soundload only with content you have the right to download or process. The app respects DRM errors and is not intended to bypass platform restrictions, technical protections, or copyright law.
+

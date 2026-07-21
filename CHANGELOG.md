@@ -1,5 +1,13 @@
 # Changelog
 
+## v0.9.13
+
+- Added integrated playback in the Buscador page.
+- YouTube and SoundCloud results can be played as full tracks through resolved provider streams.
+- Spotify and Apple Music results use official preview URLs when available.
+- Added a native WinUI player panel with artwork, title, provider, and transport controls.
+- Playback failures now show clear messages without affecting downloads or the queue.
+
 ## v0.9.12
 
 - Corrected release documentation and public release notes.
@@ -67,3 +75,4 @@
 ## v0.1.0 - v0.7.0
 
 - Initial app foundation, provider detection, SoundCloud metadata/download flow, local conversion, FFmpeg/scdl integration, settings, logs, and packaging groundwork.
+
