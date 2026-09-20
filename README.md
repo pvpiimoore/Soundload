@@ -1,6 +1,6 @@
 # Soundload
 
-Soundload is a Windows desktop app for downloading, organizing, searching, and converting audio from supported sources.
+SoundLoad provides desktop applications for Windows and macOS for downloading and working with audio from supported sources. Platform versions and features evolve independently.
 
 The public repository is used for official downloads, release notes, and update checks. The application source code is private.
 
@@ -10,12 +10,13 @@ Get the latest version from GitHub Releases:
 
 https://github.com/pvpiimoore/Soundload/releases/latest
 
-Each release includes:
+The current product release, **SoundLoad v0.9.17**, groups **Windows 0.9.17** and **macOS 0.2.2 (build 4)**. Choose the package for your platform:
 
 - `SoundloadSetup-<version>-win-x64.exe`: recommended Windows installer.
-- `Soundload-share.zip`: portable version, no installer required.
+- `Soundload-share.zip`: Windows portable version, no installer required.
+- `SoundLoad-0.2.2-macOS27-arm64.dmg`: macOS package for Apple Silicon.
 
-## Features
+## Windows Features
 
 - Download and convert audio from supported sources.
 - SoundCloud, YouTube, Bandcamp, Spotify import through spotDL, and Apple Music import through public iTunes metadata.
@@ -39,7 +40,9 @@ Use the included launcher/shortcut files if you want a movable shortcut.
 
 ## Updates
 
-Soundload checks GitHub Releases for updates. Installed builds use the Windows installer flow. Portable builds download the portable ZIP so they do not accidentally launch the desktop installer.
+Starting with Windows 0.9.17, updates use a dedicated Windows channel and compare the Windows package version, independently of the product release marked Latest. Installed builds download the installer; portable builds download the ZIP. Install Windows 0.9.17 to migrate from the old updater.
+
+macOS 0.2.2 uses Sparkle and its own signed appcast, independently of GitHub Latest and the Windows channel. Users of macOS 0.2.1 must install 0.2.2 manually once to adopt the updater. The app is ad-hoc signed and is not Apple-notarized. The older 0.2.1 DMG is retained for historical reference; use 0.2.2.
 
 ## Responsible Use
 
