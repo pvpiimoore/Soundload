@@ -1,0 +1,41 @@
+name: Update platform channels
+
+on:
+  release:
+    types: [published]
+  workflow_dispatch:
+    inputs:
+      release_tag:
+        description: 'Published product release (for example v0.9.17)'
+        required: true
+        type: string
+      dry_run:
+        description: 'Validate and show the plan without changing channels'
+        default: true
+        type: boolean
+
+permissions:
+  contents: write
+
+concurrency:
+  group: platform-update-channels
+  cancel-in-progress: false
+
+jobs:
+  update:
+    if: github.event_name == 'workflow_dispatch' || (!github.event.release.prerelease && startsWith(github.event.release.tag_name, 'v'))
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
+        with:
+          ref: ${{ github.event.repository.default_branch }}
+          persist-credentials: false
+      - name: Test publication rules
+        run: python3 -m unittest discover -s .github/scripts/tests -v
+      - name: Verify release and update its platform channels
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
+          RELEASE_TAG: ${{ inputs.release_tag || github.event.release.tag_name }}
+          DRY_RUN: ${{ github.event_name == 'workflow_dispatch' && inputs.dry_run && 'true' || 'false' }}
+        run: python3 .github/scripts/update_channels.py

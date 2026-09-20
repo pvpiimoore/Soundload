@@ -40,6 +40,8 @@ Use the included launcher/shortcut files if you want a movable shortcut.
 
 ## Updates
 
+Publishing a stable product release marked Latest automatically updates its platform channels through GitHub Actions. See [Publishing a release](PUBLISHING.md) for required assets and retry instructions.
+
 Starting with Windows 0.9.17, updates use a dedicated Windows channel and compare the Windows package version, independently of the product release marked Latest. Installed builds download the installer; portable builds download the ZIP. Install Windows 0.9.17 to migrate from the old updater.
 
 macOS 0.2.2 uses Sparkle and its own signed appcast, independently of GitHub Latest and the Windows channel. Users of macOS 0.2.1 must install 0.2.2 manually once to adopt the updater. The app is ad-hoc signed and is not Apple-notarized. The older 0.2.1 DMG is retained for historical reference; use 0.2.2.

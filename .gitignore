@@ -2,3 +2,11 @@
 !.gitignore
 !README.md
 !CHANGELOG.md
+!PUBLISHING.md
+!.github/
+!.github/workflows/
+!.github/workflows/update-channels.yml
+!.github/scripts/
+!.github/scripts/update_channels.py
+!.github/scripts/tests/
+!.github/scripts/tests/test_update_channels.py
