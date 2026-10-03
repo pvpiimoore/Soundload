@@ -69,9 +69,29 @@ class Rules(unittest.TestCase):
         with self.assertRaisesRegex(ValueError, "version bump"):
             plan(changed, win=current)
 
-    def test_windows_missing_portable_rejected(self):
+    def test_windows_installer_only_sets_portable_null(self):
         r = windows(); r["assets"].pop()
-        with self.assertRaisesRegex(ValueError, "installer and portable"):
+        self.assertIsNone(json.loads(plan(r)[0].data)["portable"])
+
+    def test_windows_installer_only_carry_forward_preserves_channel(self):
+        r = windows("0.9.19"); r["assets"].pop()
+        old = plan(r)[0].data
+        r["assets"] += mac()["assets"]
+        self.assertEqual([p.channel for p in plan(r, win=old)], ["macos-updates"])
+
+    def test_omitted_portable_does_not_remove_existing_same_version(self):
+        old = plan(windows())[0].data
+        r = windows(); r["assets"].pop()
+        self.assertEqual(plan(r, win=old), [])
+
+    def test_new_installer_only_version_does_not_reuse_old_portable(self):
+        old = plan(windows())[0].data
+        r = windows("0.9.19"); r["assets"].pop()
+        self.assertIsNone(json.loads(plan(r, win=old)[0].data)["portable"])
+
+    def test_portable_without_installer_rejected(self):
+        r = windows(); r["assets"].pop(0)
+        with self.assertRaisesRegex(ValueError, "requires an installer"):
             plan(r)
 
     def test_missing_github_digest_rejected(self):

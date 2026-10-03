@@ -99,19 +99,23 @@ def plan_release(release, read, current):
     installers = [a for a in assets if re.fullmatch(r"SoundloadSetup-\d+\.\d+\.\d+-win-x64\.exe", a)]
     require(len(installers) <= 1, "Ambiguous Windows installers")
     if installers or "Soundload-share.zip" in assets:
-        require(len(installers) == 1 and "Soundload-share.zip" in assets, "Windows requires installer and portable ZIP")
+        require(len(installers) == 1, "Windows requires an installer")
         name = installers[0]
         win_version = name[len("SoundloadSetup-"):-len("-win-x64.exe")]
         old_data = current("windows-stable", "windows-update.json")
         old = json.loads(old_data) if old_data else None
-        files = {}
-        for kind, filename in [("installer", name), ("portable", "Soundload-share.zip")]:
+        files = {"portable": None}
+        selected = [("installer", name)]
+        if "Soundload-share.zip" in assets:
+            selected.append(("portable", "Soundload-share.zip"))
+        for kind, filename in selected:
             a = assets[filename]
             files[kind] = dict(name=filename, url=asset_url(tag, filename), size=a["size"], sha256=digest(a))
         if old:
             require(version(win_version) >= version(old["version"]), "Refusing Windows downgrade")
             if version(win_version) == version(old["version"]):
-                require(all(old[k]["sha256"].lower() == files[k]["sha256"] and old[k]["size"] == files[k]["size"] for k in files),
+                require(all(old.get(k) is not None and old[k]["sha256"].lower() == value["sha256"] and old[k]["size"] == value["size"]
+                            for k, value in files.items() if value is not None),
                         "Windows binaries changed without a version bump")
                 files = None  # Same platform version carried forward: preserve its channel.
         if files:
