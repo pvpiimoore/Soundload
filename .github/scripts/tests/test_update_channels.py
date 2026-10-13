@@ -47,6 +47,25 @@ def plan(r, win=None, feed=None):
 
 
 class Rules(unittest.TestCase):
+    def test_metadata_read_bypasses_old_channel_redirect(self):
+        a = asset("appcast.xml", b"signed bytes")
+        a["browser_download_url"] = m.asset_url("macos-updates", "appcast.xml")
+        with patch.object(m.urllib.request, "urlopen") as opening:
+            opening.return_value.__enter__.return_value.read.return_value = a["data"]
+            self.assertEqual(m.GitHub("test").read(a), a["data"])
+        request = opening.call_args.args[0]
+        self.assertEqual(request.full_url, a["browser_download_url"] + "?sha256=" + m.sha(a["data"]))
+        self.assertEqual(request.get_header("Cache-control"), "no-cache")
+        self.assertIsNone(request.get_header("Authorization"))
+
+    def test_cached_old_metadata_still_fails_hash_validation(self):
+        a = asset("appcast.xml", b"new")
+        a["browser_download_url"] = m.asset_url("macos-updates", "appcast.xml")
+        with patch.object(m.urllib.request, "urlopen") as opening:
+            opening.return_value.__enter__.return_value.read.return_value = b"old"
+            with self.assertRaisesRegex(ValueError, "failed verification"):
+                m.GitHub("test").read(a)
+
     def test_windows_version_independent_of_product(self):
         result = plan(windows())[0]
         manifest = json.loads(result.data)

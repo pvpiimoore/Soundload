@@ -176,7 +176,11 @@ class GitHub:
         require(asset["size"] <= 2 * 1024 * 1024, "Metadata asset too large")
         url = asset["browser_download_url"]
         require(url.startswith(BASE + "/download/"), "Unexpected asset repository")
-        with urllib.request.urlopen(url, timeout=60) as response:
+        # A renamed/replaced channel asset can retain the previous CDN redirect.
+        # Bind the request to the expected content without modifying signed bytes.
+        url += ("&" if "?" in url else "?") + "sha256=" + digest(asset)
+        request = urllib.request.Request(url, headers={"Cache-Control": "no-cache"})
+        with urllib.request.urlopen(request, timeout=60) as response:
             data = response.read(2 * 1024 * 1024 + 1)
         require(len(data) == asset["size"] and sha(data) == digest(asset), "Downloaded metadata failed verification")
         return data
