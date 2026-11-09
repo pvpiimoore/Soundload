@@ -10,10 +10,10 @@ Get the latest version from GitHub Releases:
 
 https://github.com/pvpiimoore/Soundload/releases/latest
 
-The current product release, **SoundLoad v0.9.23**, groups **Windows 0.9.21** and **macOS 0.5.1 (build 9)**. Choose the package for your platform:
+The current product release, **SoundLoad v0.10.0**, groups **Windows 0.9.21** and **macOS 0.6.0 (build 10)**. Choose the package for your platform:
 
 - `SoundloadSetup-0.9.21-win-x64.exe`: Windows installer (x64).
-- `SoundLoad-0.5.1-macOS27-arm64.dmg`: macOS 27 package for Apple Silicon.
+- `SoundLoad-0.6.0-macOS27-arm64.dmg`: macOS 27 package for Apple Silicon.
 
 Recent releases include only the Windows installer. Older portable ZIP builds remain available in their original releases.
 
@@ -37,6 +37,8 @@ Windows:
 macOS:
 
 - Native app for macOS 27 on Apple Silicon, with Sparkle updates from a signed feed.
+- **Send to rekordbox (beta):** analyzes BPM, beatgrid, downbeat and key and delivers the playlist to rekordbox, ready to export to a USB drive. Beta feature: it may contain errors, so always check the beatgrid before playing.
+- Edit title, artist, album and cover inside the audio file, without re-encoding.
 - Bundled audio tools (Python, yt-dlp, scdl, spotDL, FFmpeg, Deno): nothing else to install.
 
 ## Updates
