@@ -1,6 +1,6 @@
 # Soundload
 
-SoundLoad provides desktop applications for Windows and macOS for downloading and working with audio from supported sources. Platform versions and features evolve independently.
+SoundLoad provides desktop applications for Windows and macOS for downloading and working with audio from supported sources. Each platform has its own version number and update channel.
 
 The public repository is used for official downloads, release notes, and update checks. The application source code is private.
 
@@ -10,41 +10,43 @@ Get the latest version from GitHub Releases:
 
 https://github.com/pvpiimoore/Soundload/releases/latest
 
-The current product release, **SoundLoad v0.9.17**, groups **Windows 0.9.17** and **macOS 0.2.2 (build 4)**. Choose the package for your platform:
+The current product release, **SoundLoad v0.9.23**, groups **Windows 0.9.21** and **macOS 0.5.1 (build 9)**. Choose the package for your platform:
 
-- `SoundloadSetup-<version>-win-x64.exe`: recommended Windows installer.
-- `Soundload-share.zip`: Windows portable version, no installer required.
-- `SoundLoad-0.2.2-macOS27-arm64.dmg`: macOS package for Apple Silicon.
+- `SoundloadSetup-0.9.21-win-x64.exe`: Windows installer (x64).
+- `SoundLoad-0.5.1-macOS27-arm64.dmg`: macOS 27 package for Apple Silicon.
 
-## Windows Features
+Recent releases include only the Windows installer. Older portable ZIP builds remain available in their original releases.
 
-- Download and convert audio from supported sources.
-- SoundCloud, YouTube, Bandcamp, Spotify import through spotDL, and Apple Music import through public iTunes metadata.
-- Buscador page for YouTube, SoundCloud, Spotify, and Apple Music search with artwork, result limits, suggested results, deduplication, and direct enqueue.
-- Integrated player in Buscador: full playback for YouTube/SoundCloud and official previews for Spotify/Apple Music when available.
-- SoundCloud playlist management with linked local folders.
-- Apple Music album import as saved lists using public iTunes metadata.
-- Playlist sync, per-track state, DRM/error/downloaded indicators, and local file reconciliation.
-- YouTube fallback for DRM-protected or failed tracks when a legal equivalent exists.
-- Metadata and cover handling for downloaded files.
-- MP3/WAV/AIFF/original output options.
-- Download queue, progress, logs, diagnostics, update checks, and optional error reporting.
-- Spanish / English UI language switcher.
-- Installer and portable builds for Windows.
+## Features
 
-## Portable Version
+Both apps:
 
-Extract the full ZIP and keep the Soundload folder intact. Do not move only the executable out of the folder, because bundled tools are resolved from the folder structure.
+- Download and convert audio from SoundCloud, YouTube and Bandcamp, plus Spotify imports through spotDL and Apple Music imports through public iTunes metadata.
+- Search YouTube, SoundCloud, Spotify and Apple Music, with artwork, previews, suggested results and direct download.
+- Saved playlists linked to a local folder: sync, per-track status (downloaded, pending, failed, unavailable, DRM), local file reconciliation, scheduled checks and M3U export.
+- Find an alternative source for failed or DRM-protected tracks when a legal equivalent exists.
+- Download queue with pause, resume, retry and recovery after closing the app.
+- Edit title, artist, album and cover of saved tracks; your edits are kept when syncing.
+- Output to MP3, WAV, AIFF, FLAC or the original format, with 24-bit WAV/AIFF and metadata and cover handling.
+- Spanish and English interface.
 
-Use the included launcher/shortcut files if you want a movable shortcut.
+Windows:
+
+- Installer with its own update channel; the app runtime and the audio tools are included.
+
+macOS:
+
+- Native app for macOS 27 on Apple Silicon, with Sparkle updates from a signed feed.
+- Bundled audio tools (Python, yt-dlp, scdl, spotDL, FFmpeg, Deno): nothing else to install.
 
 ## Updates
 
-Publishing a stable product release marked Latest automatically updates its platform channels through GitHub Actions. See [Publishing a release](PUBLISHING.md) for required assets and retry instructions.
+Publishing a stable product release marked Latest updates its platform channels automatically through GitHub Actions.
 
-Starting with Windows 0.9.17, updates use a dedicated Windows channel and compare the Windows package version, independently of the product release marked Latest. Installed builds download the installer; portable builds download the ZIP. Install Windows 0.9.17 to migrate from the old updater.
+- **Windows** (0.9.17 and later) checks its own channel and compares the Windows package version, independently of the release marked Latest.
+- **macOS** (0.2.2 and later) uses Sparkle and its own signed appcast. Users of macOS 0.2.1 must install a newer DMG manually once.
 
-macOS 0.2.2 uses Sparkle and its own signed appcast, independently of GitHub Latest and the Windows channel. Users of macOS 0.2.1 must install 0.2.2 manually once to adopt the updater. The app is ad-hoc signed and is not Apple-notarized. The older 0.2.1 DMG is retained for historical reference; use 0.2.2.
+The macOS app is ad-hoc signed and is not Apple-notarized. On first launch, macOS may ask you to confirm opening it.
 
 ## Responsible Use
 
