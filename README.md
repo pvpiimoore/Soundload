@@ -10,10 +10,10 @@ Get the latest version from GitHub Releases:
 
 https://github.com/pvpiimoore/Soundload/releases/latest
 
-The current product release, **SoundLoad v0.10.0**, groups **Windows 0.9.21** and **macOS 0.6.0 (build 10)**. Choose the package for your platform:
+The current product release, **SoundLoad v0.10.1**, groups **Windows 0.9.21** and **macOS 0.6.1 (build 11)**. Choose the package for your platform:
 
 - `SoundloadSetup-0.9.21-win-x64.exe`: Windows installer (x64).
-- `SoundLoad-0.6.0-macOS27-arm64.dmg`: macOS 27 package for Apple Silicon.
+- `SoundLoad-0.6.1-macOS27-arm64.dmg`: macOS 27 package for Apple Silicon.
 
 Recent releases include only the Windows installer. Older portable ZIP builds remain available in their original releases.
 

@@ -2,6 +2,13 @@
 
 Each product release groups the Windows and macOS apps. App versions are shown in brackets.
 
+## v0.10.1 - Faster Send to rekordbox (macOS 0.6.1)
+
+- macOS: **Send to rekordbox (beta)** analyzes each song in about half the time, using the Mac's graphics chip, with the same results.
+- macOS: more songs arrive with BPM and beatgrid already analyzed, and the key is only sent when it is very reliable; rekordbox analyzes the rest. Beta: it may contain errors; always check the beatgrid before playing.
+- macOS: .NET 10.0.15 and updated Python libraries.
+- Windows stays on 0.9.21.
+
 ## v0.10.0 - Send to rekordbox (macOS 0.6.0)
 
 - macOS: **Send to rekordbox (beta)** from any playlist or folder. SoundLoad analyzes BPM, beatgrid, downbeat and key and delivers the playlist to rekordbox (rekordbox xml › SoundLoad). Only confident analyses are sent; rekordbox analyzes the rest. The first time, SoundLoad connects rekordbox by changing only its Imported Library setting, with a backup. Beta: it may contain errors; always check the beatgrid before playing.
