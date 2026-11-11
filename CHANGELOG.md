@@ -2,12 +2,15 @@
 
 Each product release groups the Windows and macOS apps. App versions are shown in brackets.
 
-## v0.10.1 - Faster Send to rekordbox (macOS 0.6.1)
+## v0.10.1 - Send to rekordbox on Windows (Windows 0.10.0, macOS 0.6.1)
 
 - macOS: **Send to rekordbox (beta)** analyzes each song in about half the time, using the Mac's graphics chip, with the same results.
 - macOS: more songs arrive with BPM and beatgrid already analyzed, and the key is only sent when it is very reliable; rekordbox analyzes the rest. Beta: it may contain errors; always check the beatgrid before playing.
 - macOS: .NET 10.0.15 and updated Python libraries.
-- Windows stays on 0.9.21.
+- Windows: **Send to rekordbox (beta)** from any playlist or folder (Ctrl+Shift+E), with the same analysis as macOS 0.6.1. Only confident analyses are sent; rekordbox analyzes the rest. The first time, SoundLoad connects rekordbox by changing only its Imported Library setting, with a backup. Beta: it may contain errors; always check the beatgrid before playing.
+- Windows: with a dedicated DirectX 12 graphics card (NVIDIA, AMD or Intel Arc) the analysis is much faster, with the same results; other computers use the processor. It can be turned off in Settings.
+- Windows: optional phrases as memory cues (Intro, Up, Down, Chorus, Outro), off by default.
+- Windows: editing a song also writes the cover into FLAC, M4A and AIFF files; macOS "._" files on USB drives are no longer taken for songs; downloads are no longer reported as partial because of words like "terror:" in a link.
 
 ## v0.10.0 - Send to rekordbox (macOS 0.6.0)
 

@@ -10,9 +10,9 @@ Get the latest version from GitHub Releases:
 
 https://github.com/pvpiimoore/Soundload/releases/latest
 
-The current product release, **SoundLoad v0.10.1**, groups **Windows 0.9.21** and **macOS 0.6.1 (build 11)**. Choose the package for your platform:
+The current product release, **SoundLoad v0.10.1**, groups **Windows 0.10.0** and **macOS 0.6.1 (build 11)**. Choose the package for your platform:
 
-- `SoundloadSetup-0.9.21-win-x64.exe`: Windows installer (x64).
+- `SoundloadSetup-0.10.0-win-x64.exe`: Windows installer (x64).
 - `SoundLoad-0.6.1-macOS27-arm64.dmg`: macOS 27 package for Apple Silicon.
 
 Recent releases include only the Windows installer. Older portable ZIP builds remain available in their original releases.
@@ -28,17 +28,18 @@ Both apps:
 - Download queue with pause, resume, retry and recovery after closing the app.
 - Edit title, artist, album and cover of saved tracks; your edits are kept when syncing.
 - Output to MP3, WAV, AIFF, FLAC or the original format, with 24-bit WAV/AIFF and metadata and cover handling.
+- **Send to rekordbox (beta):** analyzes BPM, beatgrid, downbeat and key and delivers the playlist to rekordbox, ready to export to a USB drive. Beta feature: it may contain errors, so always check the beatgrid before playing.
+- Edit title, artist, album and cover inside the audio file, without re-encoding.
 - Spanish and English interface.
 
 Windows:
 
 - Installer with its own update channel; the app runtime and the audio tools are included.
+- Send to rekordbox analyzes faster on a dedicated DirectX 12 graphics card (NVIDIA, AMD or Intel Arc), with the same results; other computers use the processor.
 
 macOS:
 
 - Native app for macOS 27 on Apple Silicon, with Sparkle updates from a signed feed.
-- **Send to rekordbox (beta):** analyzes BPM, beatgrid, downbeat and key and delivers the playlist to rekordbox, ready to export to a USB drive. Beta feature: it may contain errors, so always check the beatgrid before playing.
-- Edit title, artist, album and cover inside the audio file, without re-encoding.
 - Bundled audio tools (Python, yt-dlp, scdl, spotDL, FFmpeg, Deno): nothing else to install.
 
 ## Updates
