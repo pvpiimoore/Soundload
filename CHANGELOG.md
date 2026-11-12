@@ -2,6 +2,15 @@
 
 Each product release groups the Windows and macOS apps. App versions are shown in brackets.
 
+## v0.10.2 - Playlists for preparing sets (macOS 0.7.0)
+
+- macOS: playlists show BPM, key and length; sort by any column and filter by BPM range or by harmonically compatible keys (Camelot wheel). "Analyze BPM and key" works them out without sending to rekordbox. Optional Camelot notation (8A, 9B…), off by default. Songs can be dragged to Finder or other apps.
+- macOS: pasting a link in Downloads shows the song (artwork, title, artist, length, source) to confirm it before downloading, and flags links you already downloaded.
+- macOS: Search previews can be controlled with the keyboard (space to play or pause, arrows for previous and next), show which song is playing, and "Add all" queues every result.
+- macOS: **Send to rekordbox (beta)** shows which songs rekordbox will analyze and why, and flags file names rekordbox may not import. M4A files are sent without a beatgrid until the format is validated. Optional phrases as memory cues (Intro, Up, Down, Chorus, Outro), off by default. Beta: it may contain errors; always check the beatgrid before playing.
+- macOS: refreshed interface: Settings in the sidebar with a new rekordbox tab, mosaic playlist covers, a visible notice when a playlist's drive is missing, free space at a glance, pending downloads on the Dock icon and a three-step welcome on first launch.
+- Windows stays on 0.10.0.
+
 ## v0.10.1 - Send to rekordbox on Windows (Windows 0.10.0, macOS 0.6.1)
 
 - macOS: **Send to rekordbox (beta)** analyzes each song in about half the time, using the Mac's graphics chip, with the same results.
