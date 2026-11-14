@@ -2,6 +2,25 @@
 
 Each product release groups the Windows and macOS apps. App versions are shown in brackets.
 
+## v0.10.3 - Beatgrids to review and uptempo at its real tempo (Windows 0.10.1, macOS 0.8.0)
+
+- Both: **Send to rekordbox (beta)** now also sends uncertain beatgrids, marked for review: they keep SoundLoad's BPM and beatgrid, are coloured orange, carry the comment "SoundLoad: check beatgrid" and go into a separate "To review" playlist. In SoundLoad's playlists they show an orange mark next to the BPM. The previous behaviour (no beatgrid, rekordbox analyzes them) can be restored in Settings › rekordbox. Long DJ sets are still sent without a beatgrid.
+- Both: uptempo, frenchcore and hardcore are analyzed at their real tempo (around 200 BPM) instead of half. These songs show a **2×** mark next to the BPM; one click switches a song to half tempo (**½**) and the choice is remembered.
+- Both: more uptempo songs get a beatgrid: when an uptempo beatgrid is uncertain, SoundLoad isolates the drums and checks whether the kick lands on it. This adds a few seconds, only to those songs.
+- Both: decimal BPM (for example 138.47) when a song is not at a whole BPM, so the beatgrid no longer drifts towards the end; uncertain songs also get a finer BPM measured across the whole song and stay marked for review. Better off-beat and downbeat decisions when the analyzer is unsure.
+- Both: key reliability (high, medium or low) shown in the playlists, with three bars next to the key. Only high-reliability keys are sent to rekordbox. M4A (AAC) files get SoundLoad's beatgrid again.
+- Both: the first send with this version takes longer, because the analysis is done again. Beta: it may contain errors; always check the beatgrid and the analysis before playing.
+- Windows: playlists are now a table with BPM, key, length and quality; sort by any column and filter by BPM range or by harmonically compatible keys (Camelot wheel). BPM and key are analyzed in the background when downloads finish, or with "Analyze BPM and key", without sending to rekordbox. Optional Camelot notation, mosaic playlist covers, a notice when a playlist's drive is missing, and playlists that open much faster.
+- Windows: pasting a link in Download shows the song (cover, title, artist, length, source) to confirm it, and flags links already queued or downloaded. New "Best quality" output format that never re-encodes more than needed, and the real quality of each file shown in the queue, History and Playlists.
+- Windows: Spotify downloads keep the original audio of the source (M4A) instead of re-encoding it to MP3. YouTube downloads are no longer reported as partial when nothing failed, and keep the cover. Sign in to SoundCloud from Settings through its website.
+- Windows: Search previews from the cover, with space to play or pause and the arrow keys to move through the results; "Add all" queues every result.
+- Windows: faster analysis with a dedicated graphics card, a sent playlist can be removed in Settings › rekordbox, and song titles with accents are no longer garbled when sent to rekordbox.
+- Windows: refreshed interface: a compact sidebar that adapts to the window and shows free space, Settings in tabs with a new rekordbox section, a three-step welcome for new users and pending downloads on the taskbar icon. Updating the tools (yt-dlp, scdl, spotDL) from Settings works again. The app takes less space once installed; the installer is somewhat larger because it includes the model that isolates the drums.
+- macOS: key analysis about 2.5× faster, with identical results.
+- macOS: no more Keychain prompts after updating: credentials move to a private file only your user can read.
+- macOS: new "Maximum quality, no re-encoding" output format; the real quality of each download is shown in the queue, history and playlists, with clear warnings when a conversion cannot add quality.
+- macOS: sign in to SoundCloud from Settings › Accounts through the official website, a native sidebar that reaches the top of the window, and YouTube previews in Search play again.
+
 ## v0.10.2 - Playlists for preparing sets (macOS 0.7.0)
 
 - macOS: playlists show BPM, key and length; sort by any column and filter by BPM range or by harmonically compatible keys (Camelot wheel). "Analyze BPM and key" works them out without sending to rekordbox. Optional Camelot notation (8A, 9B…), off by default. Songs can be dragged to Finder or other apps.
