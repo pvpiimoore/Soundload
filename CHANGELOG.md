@@ -2,6 +2,20 @@
 
 Each product release groups the Windows and macOS apps. App versions are shown in brackets.
 
+## v0.10.4 - More confident beatgrids, genres and M4A that CDJs can read (Windows 0.10.2, macOS 0.9.0)
+
+- Both: **Send to rekordbox (beta)** sends many more songs with a confident beatgrid. On uptempo and hardcore SoundLoad is stricter, because that is where it failed most, so some songs that used to go as confident now go to "To review" with the same BPM and beatgrid.
+- Both: fewer confident beatgrids that are wrong: a decimal BPM that is really a cut or an edit goes to "To review", a beatgrid that drifts because the BPM is a hair away from a whole number is corrected, and on the most uncertain songs a beatgrid that lands half a beat off is moved.
+- Both: **flexible tempo (beta)**, off by default, for songs with tempo changes (sets, mixes, edits): several tempo anchors are sent instead of a single BPM. A brake discards sections with absurd tempos.
+- Both: genre the way DJ apps do it. SoundLoad takes the genre from your keywords in the tag and the title, such as "(Hard Techno Remix)", or from the genre the source gives (SoundCloud, Bandcamp); it never guesses. It shows in a new column of the playlists and in rekordbox's Genre field, and each genre can have a BPM range, as in rekordbox or Serato. The list is edited in Settings › Genres.
+- Both: SoundCloud songs saved as M4A can now be exported to CDJs. rekordbox used to import them with 00:00 and 0 BPM; they are now saved as plain M4A files, without re-encoding. Songs downloaded before have to be downloaded again.
+- Both: signing in to SoundCloud with Google, Apple or Facebook works.
+- Both: the first send with this version takes longer, because the analysis is done again. Beta: it may contain errors; always check the beatgrid and the analysis before playing.
+- Windows: sending to rekordbox with a graphics card no longer hangs on PCs with little free memory.
+- Windows: optional subfolder per genre for single downloads, and the SoundCloud sign-in window explains what to do when SoundCloud refuses the PC's web component.
+- macOS: **breaks as memory cues (beta)**, off by default: a "Break" memory cue where the kick drops out for at least 8 bars, on songs with a confident beatgrid.
+- macOS: faster sends when several songs need the kick check (Macs with 16 GB or more).
+
 ## v0.10.3 - Beatgrids to review and uptempo at its real tempo (Windows 0.10.1, macOS 0.8.0)
 
 - Both: **Send to rekordbox (beta)** now also sends uncertain beatgrids, marked for review: they keep SoundLoad's BPM and beatgrid, are coloured orange, carry the comment "SoundLoad: check beatgrid" and go into a separate "To review" playlist. In SoundLoad's playlists they show an orange mark next to the BPM. The previous behaviour (no beatgrid, rekordbox analyzes them) can be restored in Settings › rekordbox. Long DJ sets are still sent without a beatgrid.
